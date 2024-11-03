@@ -9,12 +9,12 @@ const Contact = ({ name, number, id, onDeleteProfile }) => {
           <FaUserLarge />
           <span>{name}</span>
         </div>
-        <div>
+        <div className={css.box}>
           <FaPhone />
           <span>{number}</span>
         </div>
       </div>
-      <div className={css.Btn}>
+      <div>
         <button type="button" onClick={() => onDeleteProfile(id)}>
           Delete
         </button>

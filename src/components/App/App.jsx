@@ -8,6 +8,7 @@ import ContactList from '../ContactList/ContactList.jsx';
 import SearchBox from '../SearchBox/SearchBox.jsx';
 
 import baseContacts from '../baseContacts.json';
+import Layout from '../Layout/Layout.jsx';
 
 const App = () => {
   const [searchFilter, setSearchFilter] = useState('');
@@ -44,15 +45,20 @@ const App = () => {
   );
 
   return (
-    <section>
-      <h1 className={css.title}>Phonebook</h1>
-      <ContactForm onAddProfile={onAddProfile} />
-      <SearchBox
-        searchFilter={searchFilter}
-        setSearchFilter={setSearchFilter}
-      />
-      <ContactList userFilter={userFilter} onDeleteProfile={onDeleteProfile} />
-    </section>
+    <>
+      <Layout>
+        <h1 className={css.title}>Phonebook</h1>
+        <ContactForm onAddProfile={onAddProfile} />
+        <SearchBox
+          searchFilter={searchFilter}
+          setSearchFilter={setSearchFilter}
+        />
+        <ContactList
+          userFilter={userFilter}
+          onDeleteProfile={onDeleteProfile}
+        />
+      </Layout>
+    </>
   );
 };
 

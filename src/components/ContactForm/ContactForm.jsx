@@ -43,7 +43,7 @@ const ContactForm = ({ onAddProfile }) => {
             name="number"
             component="span"
           />
-          <button type="submit" className={css.addBtn}>
+          <button type="submit" className={css.btn}>
             Add contact
           </button>
         </Form>

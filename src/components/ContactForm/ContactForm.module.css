@@ -1,6 +1,7 @@
 .list {
   gap: 12px;
   padding: 12px;
+  margin: 0 auto;
 }
 
 .form {
@@ -8,7 +9,7 @@
   flex-direction: column;
   border-radius: 4px;
   border: 1px solid rgb(12, 12, 12);
-  padding: 8px;
+  padding: 20px;
   gap: 8px;
   width: 400px;
 }
@@ -29,12 +30,16 @@
   outline: none;
 }
 
-.addBtn {
-  font-size: 16px;
-  transition: border-color 0.25s;
-  width: fit-content;
-  margin: 0 auto;
+.btn {
+  background-color: var(--secondary-button-color);
+  margin-top: 12px;
 }
-.addBtn:hover {
-  border-color: #646cff;
+
+.btn:hover {
+  background-color: var(--secondary-button-color);
+  transform: scale(1.05);
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
