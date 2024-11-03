@@ -22,6 +22,10 @@ body {
   font-family: 'Arial', sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
+  background-image: linear-gradient(var(--text-color), var(--background-color)),
+    url('./assets/watercolor.npg.webp');
+  background-blend-mode: overlay;
+  background-size: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

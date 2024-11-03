@@ -45,7 +45,7 @@ const App = () => {
   );
 
   return (
-    <>
+    <div className={css.patternBackground}>
       <Layout>
         <h1>Phonebook</h1>
         <ContactForm onAddProfile={onAddProfile} />
@@ -58,7 +58,7 @@ const App = () => {
           onDeleteProfile={onDeleteProfile}
         />
       </Layout>
-    </>
+    </div>
   );
 };
 
