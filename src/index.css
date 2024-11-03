@@ -29,6 +29,10 @@ body {
   padding: 20px;
 }
 
+h1 {
+  padding: 12px;
+}
+
 h2 {
   color: var(--primary-color);
   font-size: 2em;
