@@ -9,21 +9,25 @@ import SearchBox from '../SearchBox/SearchBox.jsx';
 import Layout from '../Layout/Layout.jsx';
 
 import baseContacts from '../baseContacts.json';
+import { useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
   const [searchFilter, setSearchFilter] = useState('');
 
-  const [arreyContact, setArreyContact] = useState(() => {
-    const stringifiedArreyContact = localStorage.getItem('users');
-    const parsedArreyContact =
-      JSON.parse(stringifiedArreyContact) ?? baseContacts;
-    return parsedArreyContact;
-  });
+  const arreyContact = useSelector(state => state.contacts);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const stringifiedArreyContact = JSON.stringify(arreyContact);
-    localStorage.setItem('users', stringifiedArreyContact);
-  }, [arreyContact]);
+  // const [arreyContact, setArreyContact] = useState(() => {
+  //   const stringifiedArreyContact = localStorage.getItem('users');
+  //   const parsedArreyContact =
+  //     JSON.parse(stringifiedArreyContact) ?? baseContacts;
+  //   return parsedArreyContact;
+  // });
+
+  // useEffect(() => {
+  //   const stringifiedArreyContact = JSON.stringify(arreyContact);
+  //   localStorage.setItem('users', stringifiedArreyContact);
+  // }, [arreyContact]);
 
   const onAddProfile = formData => {
     const finalUser = {
@@ -31,16 +35,22 @@ const App = () => {
       id: nanoid(),
     };
 
-    setArreyContact(prevState => [...prevState, finalUser]);
+    const action = { type: 'contacts/addContact', payload: finalUser };
+    dispatch(action);
+
+    // setArreyContact(prevState => [...prevState, finalUser]);
   };
 
   const onDeleteProfile = contactId => {
-    const updatedUsers = arreyContact.filter(user => user.id !== contactId);
+    const action = { type: 'contacts/deleteContact', payload: contactId };
+    dispatch(action);
 
-    setArreyContact(updatedUsers);
+    // const updatedUsers = arreyContact.filter(user => user.id !== contactId);
+
+    // setArreyContact(updatedUsers);
   };
 
-  const userFilter = arreyContact.filter(contact =>
+  const userFilter = arreyContact.contacts.filter(contact =>
     contact.name.toLowerCase().includes(searchFilter.toLowerCase().trim())
   );
 
