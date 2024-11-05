@@ -14,7 +14,8 @@ import { useDispatch, useSelector } from 'react-redux';
 const App = () => {
   const [searchFilter, setSearchFilter] = useState('');
 
-  const arreyContact = useSelector(state => state.contacts);
+  const arreyContact = useSelector(state => state.userContacts);
+
   const dispatch = useDispatch();
 
   // const [arreyContact, setArreyContact] = useState(() => {
@@ -50,8 +51,8 @@ const App = () => {
     // setArreyContact(updatedUsers);
   };
 
-  const userFilter = arreyContact.contacts.filter(contact =>
-    contact.name.toLowerCase().includes(searchFilter.toLowerCase().trim())
+  const userFilter = arreyContact.contacts.items.filter(item =>
+    item.name.toLowerCase().includes(searchFilter.toLowerCase().trim())
   );
 
   return (
